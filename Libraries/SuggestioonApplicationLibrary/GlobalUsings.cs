@@ -1,7 +1,6 @@
 ﻿global using MongoDB.Bson;
 global using MongoDB.Bson.Serialization.Attributes;
-global using System;
-global using System.Collections.Generic;
-global using System.Linq;
-global using System.Text;
-global using System.Threading.Tasks;
+global using SuggestioonApplicationLibrary.Models;
+global using MongoDB.Driver;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.Caching.Memory;

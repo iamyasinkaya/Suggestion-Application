@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuggestioonApplicationLibrary", "Libraries\SuggestioonApplicationLibrary\SuggestioonApplicationLibrary.csproj", "{631CF6CC-D5D9-4438-BAD4-880C3EB0C3D7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{7F18B512-DC80-44B6-9D2A-EB89FEF84299}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuggestionApplicationUI", "Presentation\SuggestionApplicationUI\SuggestionApplicationUI.csproj", "{92315ED6-562A-4B05-B879-592653B16DEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +21,17 @@ Global
 		{631CF6CC-D5D9-4438-BAD4-880C3EB0C3D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{631CF6CC-D5D9-4438-BAD4-880C3EB0C3D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{631CF6CC-D5D9-4438-BAD4-880C3EB0C3D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92315ED6-562A-4B05-B879-592653B16DEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92315ED6-562A-4B05-B879-592653B16DEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92315ED6-562A-4B05-B879-592653B16DEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92315ED6-562A-4B05-B879-592653B16DEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{631CF6CC-D5D9-4438-BAD4-880C3EB0C3D7} = {34EDCB46-4E67-40B0-9A40-5460CF1EEDD9}
+		{92315ED6-562A-4B05-B879-592653B16DEC} = {7F18B512-DC80-44B6-9D2A-EB89FEF84299}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {20F4D035-D0B0-4DE0-8D8A-C9130F493366}

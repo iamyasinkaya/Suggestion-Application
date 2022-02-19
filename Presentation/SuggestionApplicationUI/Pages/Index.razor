@@ -1,0 +1,223 @@
+﻿@page "/"
+
+
+@inject ICategoryData categoryData
+@inject IStatusData statusData
+@inject ISuggestionData suggestionData
+@inject IUserData userData
+@inject NavigationManager navigationManager
+@inject ProtectedSessionStorage protectedSessionStorage
+
+
+
+<h1>Training Suggestions</h1>
+<div>
+    <button>Suggest</button>
+</div>
+<div>
+    <div>
+        @suggestions?.Count Suggestions
+    </div>
+    <div>
+        <button @onclick="(() => OrderByNewAsync(true))">New</button>
+        <button @onclick="(() => OrderByNewAsync(false))">Popular</button>
+    </div>
+    <div>
+        <input type="text" placeholder="Search" aria-label="Search box" @oninput="((txt)=> OnSearchInputAsync((string)txt.Value))" />
+    </div>
+</div>
+
+<div>
+    <div>
+        @if (suggestions is not null)
+        {
+            <Virtualize Items="@suggestions" Context="s" OverscanCount="10">
+                <div>
+                    <div>
+                        <div @GetUpvoteTopText(s)></div>
+                        <span class="oi oi-caret-top" />
+                        <div @GetUpvoteBottomText(s)></div>
+                    </div>
+                    <div>
+                        <div @onclick="(()=>OpenDetails(s))">
+                            @s.Suggestion
+                        </div>
+                        <div>
+                            <div @onclick="(()=>OpenDetails(s))">
+                                @s.Category?.CategoryName
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            @s.SuggestionStatus?.StatusName
+                        </div>
+                    </div>
+                </div>
+            </Virtualize>
+        }
+    </div>
+    <div>
+        @if (categories is not null)
+        {
+            <div>
+                <span>Category</span>
+                <div @onclick="(()=> OnCategoryClickAsync())">
+                    All
+                </div>
+                @foreach (var item in categories)
+                {
+                    <div @onclick="(()=> OnCategoryClickAsync(item.CategoryName))">
+                        @item.CategoryName
+                    </div>
+
+                }
+            </div>
+        }
+        @if (statuses is not null)
+        {
+            <div>
+                <span>Category</span>
+                <div @onclick="(()=> OnStatusClickAsync())">
+                    All
+                </div>
+                @foreach (var item in statuses)
+                {
+                    <div @onclick="(()=> OnStatusClickAsync(item.StatusName))">
+                        @item.StatusName
+                    </div>
+
+                }
+            </div>
+        }
+    </div>
+</div>
+
+
+@code {
+
+
+
+    private List<SuggestionModel> suggestions;
+    private List<CategoryModel> categories;
+    private List<StatusModel> statuses;
+
+    private string selectedCategory = "All";
+    private string selectedStatus = "All";
+    private string searchText = "";
+    bool isShortedNew = true;
+
+
+
+    protected async override Task OnInitializedAsync()
+    {
+        categories = await categoryData.GetCategoriesAsync();
+        statuses = await statusData.GetStatusesAsync();
+    }
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await LoadFilterStateAsync();
+            await FilterSuggestionsAsync();
+            StateHasChanged();
+        }
+    }
+
+    private async Task LoadFilterStateAsync()
+    {
+        var stringResults = await protectedSessionStorage.GetAsync<string>(nameof(selectedCategory));
+        selectedCategory = stringResults.Success ? stringResults.Value : "All";
+
+        stringResults = await protectedSessionStorage.GetAsync<string>(nameof(selectedStatus));
+        selectedStatus = stringResults.Success ? stringResults.Value : "All";
+
+        stringResults = await protectedSessionStorage.GetAsync<string>(nameof(searchText));
+        searchText = stringResults.Success ? stringResults.Value : "All";
+
+        var boolResults = await protectedSessionStorage.GetAsync<bool>(nameof(isShortedNew));
+        isShortedNew = boolResults.Success ? boolResults.Value : true;
+    }
+
+    private async Task SaveFilterStateAsync()
+    {
+        await protectedSessionStorage.SetAsync(nameof(selectedCategory), selectedCategory);
+        await protectedSessionStorage.SetAsync(nameof(selectedStatus), selectedStatus);
+        await protectedSessionStorage.SetAsync(nameof(searchText), searchText);
+        await protectedSessionStorage.SetAsync(nameof(isShortedNew), isShortedNew);
+    }
+
+    private async Task FilterSuggestionsAsync()
+    {
+        var output = await suggestionData.GetApprovedSuggestionsAsync();
+
+        if (selectedCategory != "All")
+            output = output.Where(s => s.Category?.CategoryName == selectedCategory).ToList();
+
+
+        if (selectedStatus != "All")
+            output = output.Where(s => s.SuggestionStatus?.StatusName == selectedStatus).ToList();
+
+
+        if (string.IsNullOrWhiteSpace(searchText) == false)
+            output = output.Where(s => s.Suggestion.Contains(searchText, StringComparison.InvariantCultureIgnoreCase)
+            || s.Description.Contains(searchText, StringComparison.InvariantCultureIgnoreCase)).ToList();
+
+
+        if (isShortedNew)
+            output = output.OrderByDescending(s => s.DateCreated).ToList();
+        else
+            output = output.OrderByDescending(s => s.UserVotes.Count)
+                           .ThenByDescending(s => s.DateCreated).ToList();
+
+        suggestions = output;
+
+        await SaveFilterStateAsync();
+    }
+
+    private async Task OrderByNewAsync(bool isNew)
+    {
+        isShortedNew = isNew;
+        await FilterSuggestionsAsync();
+    }
+
+    private async Task OnSearchInputAsync(string searchInput)
+    {
+        searchText = searchInput;
+        await FilterSuggestionsAsync();
+    }
+
+    private async Task OnCategoryClickAsync(string category = "All")
+    {
+        selectedCategory = category;
+        await FilterSuggestionsAsync();
+    }
+
+    private async Task OnStatusClickAsync(string status = "All")
+    {
+        selectedStatus = status;
+        await FilterSuggestionsAsync();
+    }
+
+    private string GetUpvoteTopText(SuggestionModel suggestion)
+    {
+        if (suggestion.UserVotes?.Count > 0)
+            return suggestion.UserVotes.Count.ToString("00");
+        else
+            return "Click to";
+    }
+
+    private string GetUpvoteBottomText(SuggestionModel suggestion)
+    {
+        if (suggestion.UserVotes?.Count > 1)
+            return "Upvotes";
+        else
+            return "Upvote";
+    }
+
+    private void OpenDetails(SuggestionModel suggestion)
+    {
+        navigationManager.NavigateTo($"/Details/{suggestion.Id}");
+    }
+}
