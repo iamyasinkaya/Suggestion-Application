@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{34EDCB46-4E67-40B0-9A40-5460CF1EEDD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuggestioonApplicationLibrary", "Libraries\SuggestioonApplicationLibrary\SuggestioonApplicationLibrary.csproj", "{631CF6CC-D5D9-4438-BAD4-880C3EB0C3D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{631CF6CC-D5D9-4438-BAD4-880C3EB0C3D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{631CF6CC-D5D9-4438-BAD4-880C3EB0C3D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{631CF6CC-D5D9-4438-BAD4-880C3EB0C3D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{631CF6CC-D5D9-4438-BAD4-880C3EB0C3D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{631CF6CC-D5D9-4438-BAD4-880C3EB0C3D7} = {34EDCB46-4E67-40B0-9A40-5460CF1EEDD9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {20F4D035-D0B0-4DE0-8D8A-C9130F493366}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,11 @@
+C:\Users\yasin.kaya\Desktop\Example Projects\SuggestionApplication\Libraries\SuggestioonApplicationLibrary\obj\Debug\net6.0\SuggestioonApplicationLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yasin.kaya\Desktop\Example Projects\SuggestionApplication\Libraries\SuggestioonApplicationLibrary\obj\Debug\net6.0\SuggestioonApplicationLibrary.AssemblyInfoInputs.cache
+C:\Users\yasin.kaya\Desktop\Example Projects\SuggestionApplication\Libraries\SuggestioonApplicationLibrary\obj\Debug\net6.0\SuggestioonApplicationLibrary.AssemblyInfo.cs
+C:\Users\yasin.kaya\Desktop\Example Projects\SuggestionApplication\Libraries\SuggestioonApplicationLibrary\obj\Debug\net6.0\SuggestioonApplicationLibrary.csproj.CoreCompileInputs.cache
+C:\Users\yasin.kaya\Desktop\Example Projects\SuggestionApplication\Libraries\SuggestioonApplicationLibrary\bin\Debug\net6.0\SuggestioonApplicationLibrary.deps.json
+C:\Users\yasin.kaya\Desktop\Example Projects\SuggestionApplication\Libraries\SuggestioonApplicationLibrary\bin\Debug\net6.0\SuggestioonApplicationLibrary.dll
+C:\Users\yasin.kaya\Desktop\Example Projects\SuggestionApplication\Libraries\SuggestioonApplicationLibrary\bin\Debug\net6.0\ref\SuggestioonApplicationLibrary.dll
+C:\Users\yasin.kaya\Desktop\Example Projects\SuggestionApplication\Libraries\SuggestioonApplicationLibrary\bin\Debug\net6.0\SuggestioonApplicationLibrary.pdb
+C:\Users\yasin.kaya\Desktop\Example Projects\SuggestionApplication\Libraries\SuggestioonApplicationLibrary\obj\Debug\net6.0\SuggestioonApplicationLibrary.dll
+C:\Users\yasin.kaya\Desktop\Example Projects\SuggestionApplication\Libraries\SuggestioonApplicationLibrary\obj\Debug\net6.0\ref\SuggestioonApplicationLibrary.dll
+C:\Users\yasin.kaya\Desktop\Example Projects\SuggestionApplication\Libraries\SuggestioonApplicationLibrary\obj\Debug\net6.0\SuggestioonApplicationLibrary.pdb
