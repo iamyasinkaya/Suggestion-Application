@@ -114,9 +114,9 @@ public class MongoSuggestionData : ISuggestionData
     {
         var client = _db.Client;
 
-        using var session = await client.StartSessionAsync();
+        //using var session = await client.StartSessionAsync();
 
-        session.StartTransaction();
+        //session.StartTransaction();
 
         try
         {
@@ -135,11 +135,11 @@ public class MongoSuggestionData : ISuggestionData
 
             await usersInTransaction.ReplaceOneAsync(u => u.Id == user.Id, user);
 
-            await session.CommitTransactionAsync();
+            //await session.CommitTransactionAsync();
         }
         catch (Exception)
         {
-            await session.AbortTransactionAsync();
+            //await session.AbortTransactionAsync();
 
             throw;
         }

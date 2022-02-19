@@ -34,9 +34,9 @@
             <Virtualize Items="@suggestions" Context="s" OverscanCount="10">
                 <div>
                     <div>
-                        <div @GetUpvoteTopText(s)></div>
+                        <div>@GetUpvoteTopText(s)</div>
                         <span class="oi oi-caret-top" />
-                        <div @GetUpvoteBottomText(s)></div>
+                        <div>@GetUpvoteBottomText(s)</div>
                     </div>
                     <div>
                         <div @onclick="(()=>OpenDetails(s))">
