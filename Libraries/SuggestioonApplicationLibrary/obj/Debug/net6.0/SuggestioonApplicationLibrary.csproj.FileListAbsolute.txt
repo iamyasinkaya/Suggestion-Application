@@ -9,3 +9,4 @@ C:\Users\yasin.kaya\Desktop\Example Projects\SuggestionApplication\Libraries\Sug
 C:\Users\yasin.kaya\Desktop\Example Projects\SuggestionApplication\Libraries\SuggestioonApplicationLibrary\obj\Debug\net6.0\SuggestioonApplicationLibrary.dll
 C:\Users\yasin.kaya\Desktop\Example Projects\SuggestionApplication\Libraries\SuggestioonApplicationLibrary\obj\Debug\net6.0\ref\SuggestioonApplicationLibrary.dll
 C:\Users\yasin.kaya\Desktop\Example Projects\SuggestionApplication\Libraries\SuggestioonApplicationLibrary\obj\Debug\net6.0\SuggestioonApplicationLibrary.pdb
+C:\Users\yasin.kaya\Desktop\Example Projects\SuggestionApplication\Libraries\SuggestioonApplicationLibrary\obj\Debug\net6.0\SuggestioonApplicationLibrary.csproj.AssemblyReference.cache

@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "631cf6cc-d5d9-4438-bad4-880c3eb0c3d7": {
+      "ProjectGuid": "631cf6cc-d5d9-4438-bad4-880c3eb0c3d7",
+      "DisplayName": "SuggestioonApplicationLibrary",
+      "ColorIndex": 0
+    },
+    "92315ed6-562a-4b05-b879-592653b16dec": {
+      "ProjectGuid": "92315ed6-562a-4b05-b879-592653b16dec",
+      "DisplayName": "SuggestionApplicationUI",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 2
+}

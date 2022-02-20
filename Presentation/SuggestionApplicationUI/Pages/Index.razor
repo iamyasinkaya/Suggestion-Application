@@ -12,7 +12,7 @@
 
 <h1>Training Suggestions</h1>
 <div>
-    <button>Suggest</button>
+    <button @onclick="CreatePage">Suggest</button>
 </div>
 <div>
     <div>
@@ -219,5 +219,10 @@
     private void OpenDetails(SuggestionModel suggestion)
     {
         navigationManager.NavigateTo($"/Details/{suggestion.Id}");
+    }
+
+    private void CreatePage()
+    {
+        navigationManager.NavigateTo("/Create");
     }
 }
